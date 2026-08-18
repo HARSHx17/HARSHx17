@@ -117,21 +117,6 @@ Cold email automation platform built for deliverability — serverless campaign 
 
 ---
 
-## GitHub stats
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=HARSHx17&show_icons=true&theme=github_dark&bg_color=0d1117&title_color=39FF14&icon_color=39FF14&text_color=c9d1d9&border_color=30363d&hide_border=false&hide_rank=true" width="49%" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=HARSHx17&layout=compact&theme=github_dark&bg_color=0d1117&title_color=39FF14&text_color=c9d1d9&border_color=30363d&hide_border=false&langs_count=8" width="35%" />
-
-<br>
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=HARSHx17&theme=github-dark-blue&background=0D1117&stroke=39FF14&ring=39FF14&fire=39FF14&currStreakLabel=39FF14&sideLabels=c9d1d9&dates=c9d1d9&border=30363d" width="60%" />
-
-</div>
-
----
-
 ## Contribution snake
 
 <div align="center">
