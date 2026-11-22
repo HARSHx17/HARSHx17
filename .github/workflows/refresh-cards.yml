@@ -1,0 +1,42 @@
+name: Refresh profile cards
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/render_readme_cards.py'
+      - 'data/contributions.json'
+      - '.github/workflows/refresh-cards.yml'
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install fonts and font subsetter
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-inter fonts-dejavu-core
+          python -m pip install 'fonttools[woff]>=4.55,<5'
+      - name: Refresh contribution data from GitHub GraphQL
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/render_readme_cards.py --refresh
+      - name: Commit refreshed JSON and animated SVGs
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/contributions.json cards/
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore: refresh profile contribution cards'
+            git push
+          fi
